@@ -1,5 +1,5 @@
 // src/app/layout.jsx
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata = {
