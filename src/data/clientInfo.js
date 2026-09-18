@@ -3,7 +3,7 @@
 export const clientInfo = {
   name: "Solimar Solar",
   tagline: "Energia Fotovoltaica no Rio de Janeiro",
-  phone: "5521999999999", // Número do Rodrigo/Solimar para o WhatsApp
+  phone: "+5521998880978", 
   location: "Rio de Janeiro - RJ",
   
   // Textos principais da Hero

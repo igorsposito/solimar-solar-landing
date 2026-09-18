@@ -3,6 +3,7 @@
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 import RayBadge from "@/components/RayBadge/RayBadge";
 import styles from "./HowItWorks.module.css";
+import { clientInfo } from "@/data/clientInfo";
 
 const steps = [
   {
@@ -28,6 +29,10 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+  const message = encodeURIComponent(
+    "Olá! Vi o passo a passo no site e gostaria de fazer uma simulação gratuita do meu projeto."
+  );
+
   return (
     <section id="como-funciona" className={styles.section}>
       <div className={styles.container}>
@@ -62,7 +67,12 @@ export default function HowItWorks() {
               <h3>Energia solar não pesa no bolso.</h3>
               <p>Pesado é continuar pagando conta alta todo mês.</p>
             </div>
-            <a href="#simulador" className={styles.bannerBtn}>
+            <a
+              href={`https://wa.me/${clientInfo.phone}?text=${message}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.bannerBtn}
+            >
               FAÇA SUA SIMULAÇÃO GRATUITA
             </a>
           </div>

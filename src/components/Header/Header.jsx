@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { clientInfo } from "@/data/clientInfo";
 import styles from "./Header.module.css";
 
-export default function Header({ onSimulateClick }) {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -13,6 +14,10 @@ export default function Header({ onSimulateClick }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const whatsappMessage = encodeURIComponent(
+    "Olá! Vim pelo site da Solimar Solar e gostaria de solicitar um orçamento."
+  );
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
@@ -39,10 +44,15 @@ export default function Header({ onSimulateClick }) {
           <a href="#faq" className={styles.navLink}>FAQ & Contato</a>
         </nav>
 
-        {/* Botão de Ação */}
-        <button className={styles.ctaButton} onClick={onSimulateClick}>
+        {/* Botão de Ação direcionando para o WhatsApp */}
+        <a
+          href={`https://wa.me/${clientInfo.phone}?text=${whatsappMessage}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.ctaButton}
+        >
           <span>Simular Economia</span>
-        </button>
+        </a>
       </div>
     </header>
   );

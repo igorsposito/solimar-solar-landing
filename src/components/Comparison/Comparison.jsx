@@ -3,6 +3,7 @@
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 import RayBadge from "@/components/RayBadge/RayBadge";
 import styles from "./Comparison.module.css";
+import { clientInfo } from "@/data/clientInfo";
 
 const withoutSolimar = [
   "Pagamento contínuo e vitalício à concessionária",
@@ -20,6 +21,11 @@ const withSolimar = [
 ];
 
 export default function Comparison({ onSimulateClick }) {
+  const handleCtaClick = () => {
+    const message = encodeURIComponent("Olá! Vi a comparação no site e quero economizar até 95% na minha conta com a Solimar Solar.");
+    window.open(`https://wa.me/${clientInfo.phone}?text=${message}`, "_blank");
+  };
+
   return (
     <section id="beneficios" className={styles.section}>
       <div className={styles.container}>
@@ -76,7 +82,7 @@ export default function Comparison({ onSimulateClick }) {
                 ))}
               </ul>
 
-              <button className={styles.ctaButton} onClick={onSimulateClick}>
+              <button className={styles.ctaButton} onClick={handleCtaClick}>
                 QUERO ESSA ECONOMIA AGORA
               </button>
             </div>
