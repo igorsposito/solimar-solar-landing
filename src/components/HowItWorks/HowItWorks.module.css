@@ -1,0 +1,136 @@
+.section {
+  padding: 6rem 2rem;
+  background-color: var(--bg-page);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.tag {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  letter-spacing: 0.1em;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-top: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.title span {
+  color: var(--primary-red);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  padding: 2.25rem 1.75rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
+}
+
+.stepNumber {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary-red);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Banner da Publi do Insta */
+.bannerCall {
+  position: relative;
+  background: var(--bg-navy);
+  border-radius: 24px;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(11, 19, 43, 0.2);
+}
+
+.bannerText h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.bannerText p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+}
+
+.bannerBtn {
+  background-color: var(--primary-red);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 1.1rem 2rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px rgba(255, 46, 59, 0.4);
+  white-space: nowrap;
+}
+
+.bannerBtn:hover {
+  background-color: var(--primary-red-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bannerCall {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

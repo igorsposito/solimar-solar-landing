@@ -1,0 +1,217 @@
+.section {
+  padding: 5.5rem 2rem;
+  background-color: #050a18;
+  color: #ffffff;
+  overflow: hidden; /* Garante que o scroll lateral não quebre o layout da página */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.tag {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary-red, #ff2e3b);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.title span {
+  color: var(--primary-red, #ff2e3b);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-top: 0.75rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid Padrão (Desktop) */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.card {
+  position: relative;
+  background-color: #0b132b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 46, 59, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Em Destaque (Mais Pedido) */
+.cardFeatured {
+  border: 2px solid var(--primary-red, #ff2e3b);
+  background-color: #0e1735;
+  box-shadow: 0 15px 35px rgba(255, 46, 59, 0.15);
+}
+
+.badgeFeatured {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ff2e3b 0%, #e01f2c 100%);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(255, 46, 59, 0.4);
+  white-space: nowrap;
+}
+
+.kwhBadge {
+  display: inline-block;
+  background-color: var(--primary-red, #ff2e3b);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.profileTitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.priceBlock {
+  margin-bottom: 1.5rem;
+}
+
+.priceMain {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.priceSub {
+  font-size: 0.8rem;
+  color: var(--primary-red, #ff2e3b);
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.bullet {
+  color: var(--primary-red, #ff2e3b);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.selectBtn {
+  width: 100%;
+  background-color: #ffffff;
+  color: #070d1f;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 800;
+  padding: 0.9rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.selectBtn:hover {
+  background-color: var(--primary-red, #ff2e3b);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(255, 46, 59, 0.35);
+}
+
+/* =======================================================
+   RESPONSIVIDADE MOBILE: Carrossel Horizontal (Peek Effect)
+   ======================================================= */
+@media (max-width: 900px) {
+  .section {
+    padding: 3.5rem 0; /* Remove padding lateral da seção */
+  }
+
+  .header {
+    padding: 0 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.85rem;
+  }
+
+  /* Transforma a grid dos cards em um trilho deslizante */
+  .cardsGrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem 2rem; /* Espaço extra no topo para a badge não ser cortada */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .cardsGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Card ocupa 84% da tela, deixando 16% visível do próximo card */
+  .card {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+  }
+
+  .priceMain {
+    font-size: 1.65rem;
+  }
+}
